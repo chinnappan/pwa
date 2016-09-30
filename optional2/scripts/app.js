@@ -277,6 +277,7 @@
      var selectedCities = '[{"key":"blank","label":"initialize"}]';
     // IMPORTANT: See notes about use of localStorage.
     localStorage.selectedCities = selectedCities;
+	cache.put('muthu123', 'sdfdsf');
 	/*app.updateForecastCard(initialWeatherForecast);
     app.selectedCities = [
       {key: initialWeatherForecast.key, label: initialWeatherForecast.label}
