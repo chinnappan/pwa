@@ -137,7 +137,7 @@
 	//  alert(key);
 	//  alert(label);
 	  
-    var url = 'https://raw.githubusercontent.com/renish03/pwa/gh-pages/jason.html';
+    var url = 'https://chinnappan.github.io/pwa/optional2/json.html';
     if ('caches' in window) {
       caches.match(url).then(function(response) {
         if (response) {

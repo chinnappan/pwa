@@ -33,7 +33,7 @@ self.addEventListener('activate', function(e) {
 self.addEventListener('fetch', function(e) {
 console.log('[ServiceWorker] Fetch', e.request.url);
   console.log('muthu clita 1234d'); 
-  var dataUrl = 'https://raw.githubusercontent.com/renish03/pwa/gh-pages/jason.html'; 
+  var dataUrl = 'https://chinnappan.github.io/pwa/optional2/json.html'; 
   console.log('muthu clita'+ e.request.url.indexOf(dataUrl));
   console.log('aarshia'+ e.request.url);
   if (e.request.url.indexOf(dataUrl) > -1) {
