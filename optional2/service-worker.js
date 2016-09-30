@@ -31,11 +31,8 @@ self.addEventListener('activate', function(e) {
 });
 
 self.addEventListener('fetch', function(e) {
-console.log('[ServiceWorker] Fetch', e.request.url);
-  console.log('muthu clita 1234d'); 
-  var dataUrl = 'https://chinnappan.github.io/pwa/optional2/json.html'; 
-  console.log('muthu clita'+ e.request.url.indexOf(dataUrl));
-  console.log('aarshia'+ e.request.url);
+  var dataUrl = 'https://chinnappan.github.io/pwa/optional2/json.html';   
+  console.log('aarshia== '+ e.request.url + '=====' + e.request.url.indexOf(dataUrl));
   if (e.request.url.indexOf(dataUrl) > -1) {
 	console.log('[ServiceWorker] Fetched&Cached Data outer');
     e.respondWith(

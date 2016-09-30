@@ -33,7 +33,7 @@
     hasRequestPending: false,
     isLoading: true,
     visibleCards: {},
-    selectedCities: [],
+    loadinitiate: [],
     spinner: document.querySelector('.loader'),
     cardTemplate: document.querySelector('.cardTemplate'),
     container: document.querySelector('.main'),
@@ -65,7 +65,7 @@
     var key = selected.value;
     var label = selected.textContent;
     app.getForecast(key, label);
-    app.selectedCities.push({key: key, label: label});
+    app.loadinitiate.push({key: key, label: label});
     app.saveSelectedCities();
     app.toggleAddDialog(false);
   });
@@ -249,9 +249,9 @@
 
   // Save list of cities to localStorage, see note below about localStorage.
   app.saveSelectedCities = function() {
-    var selectedCities = '[{"key":"blank","label":"initialize"}]';
+    var loadinitiate = '[{"key":"blank","label":"initialize"}]';
     // IMPORTANT: See notes about use of localStorage.
-    localStorage.selectedCities = selectedCities;
+    localStorage.loadinitiate = loadinitiate;
   };
 
   /************************************************************************
@@ -265,24 +265,23 @@
    *   SimpleDB (https://gist.github.com/inexorabletash/c8069c042b734519680c)
    ************************************************************************/
 
-  app.selectedCities = localStorage.selectedCities;
-  if (app.selectedCities) {
+  app.loadinitiate = localStorage.loadinitiate;
+  if (app.loadinitiate) {
 
 	 console.log('Second time');
      app.getForecast('blank', 'initialize');
    
   } else {
 	 console.log('First time');
-	  app.getForecast('blank', 'initialize');
-     var selectedCities = '[{"key":"blank","label":"initialize"}]';
+	 app.getForecast('blank', 'initialize');
+     var loadinitiate = '[{"key":"blank","label":"initialize"}]';
     // IMPORTANT: See notes about use of localStorage.
-    localStorage.selectedCities = selectedCities;
-	cache.put('muthu123', 'sdfdsf');
+    localStorage.loadinitiate = loadinitiate;
 	/*app.updateForecastCard(initialWeatherForecast);
-    app.selectedCities = [
+    app.loadinitiate = [
       {key: initialWeatherForecast.key, label: initialWeatherForecast.label}
     ];
-    app.saveSelectedCities();*/
+    app.saveloadinitiate();*/
   }
 
   if('serviceWorker' in navigator) {
