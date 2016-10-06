@@ -31,25 +31,20 @@ self.addEventListener('activate', function(e) {
 });
 
 self.addEventListener('fetch', function(e) {
-console.log('[ServiceWorker] Fetch', e.request.url);
-  console.log('muthu clita 1234d'); 
   var dataUrl = 'https://raw.githubusercontent.com/renish03/pwa/gh-pages/jason.html'; 
-  console.log('muthu clita'+ e.request.url.indexOf(dataUrl));
-  console.log('aarshia'+ e.request.url);
-  if (e.request.url.indexOf(dataUrl) > -1) {
-	console.log('[ServiceWorker] Fetched&Cached Data outer');
+  if (e.request.url.indexOf(dataUrl) > -1) {	
     e.respondWith(
       fetch(e.request)
         .then(function(response) {
           return caches.open(dataCacheName).then(function(cache) {
             cache.put(e.request.url, response.clone());
-            console.log('[ServiceWorker] Fetched&Cached Data');
+            console.log('[ServiceWorker] Fetched&Cached Data Outer');
             return response;
           });
         })
     );
   } else {
-	console.log('[ServiceWorker] Fetched&Cached Data inner');
+	console.log('[ServiceWorker] Fetched&Cached Data Inner');
     e.respondWith(
       caches.match(e.request).then(function(response) {
         return response || fetch(e.request);

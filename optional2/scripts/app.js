@@ -273,7 +273,7 @@
    
   } else {
 	 console.log('First time');
-	 app.getForecast('blank', 'initialize');
+	  app.getForecast('blank', 'initialize');
      var loadinitiate = '[{"key":"blank","label":"initialize"}]';
     // IMPORTANT: See notes about use of localStorage.
     localStorage.loadinitiate = loadinitiate;
